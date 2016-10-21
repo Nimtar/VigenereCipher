@@ -41,13 +41,13 @@ public class Vigenere {
     private static void initialize () {
         promptForUserText();
         do {
-            input = in.nextLine();
+            input = in.nextLine().toLowerCase();
         } while (input.length() == 0);
 
-        promptForKeyword();
         do {
-            keyword = in.next().toLowerCase();
-        } while (input.length() == 0);
+            promptForKeyword();
+            keyword = in.nextLine().toLowerCase();
+        } while (!keyword.matches("[A-Za-z]+"));
 
     }
 
@@ -77,7 +77,7 @@ public class Vigenere {
 
     private static void promptForKeyword () {
         System.out.println("Please type a keyword which will be used for "
-            + "encryption and for decryption");
+            + "encryption and for decryption, containing letters only");
     }
 
 }
