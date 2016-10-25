@@ -39,10 +39,11 @@ public class Vigenere {
     }
 
     private static void initialize () {
-        promptForUserText();
+        in.nextLine();
         do {
+            promptForUserText();
             input = in.nextLine().toLowerCase();
-        } while (input.length() == 0);
+        } while (!input.matches("[A-Za-z]+"));
 
         do {
             promptForKeyword();
@@ -72,7 +73,8 @@ public class Vigenere {
     }
 
     private static void promptForUserText () {
-        System.out.println("Please type non-zero length string");
+        System.out.println("Please type non-zero length string containing "
+            + "english letters only");
     }
 
     private static void promptForKeyword () {
